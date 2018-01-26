@@ -37,6 +37,8 @@
 
  gem 'pundit'
 
+ gem 'faker'
+
  group :development do
    gem 'listen', '~> 3.0.5'
  end

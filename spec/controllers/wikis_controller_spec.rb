@@ -1,9 +1,10 @@
 require 'rails_helper'
+require 'faker'
 
 
 
 RSpec.describe WikisController, type: :controller do
-  let(:user) {User.create!(email: "fake@fake.com", password: "password123", password_confirmation: "password123") }
+  let(:user) {User.create!(email: Faker::Internet.email, password: "password123", password_confirmation: "password123") }
   let(:my_wiki) { Wiki.create!(title: "New wiki Title", body: "New wiki Body", private: false, user: user) }
 
   context "signed in user doing CRUD on a wiki" do
