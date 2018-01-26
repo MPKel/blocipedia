@@ -21,6 +21,12 @@
          <li class="pull-right"><p>Signed in as: <strong><%= current_user.email %></strong></p> </li>
          <li class="pull-right"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
          <li class="pull-right"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+         <% if current_user.standard? %>
+           <li class="pull-right"><%= link_to "Upgrade account", new_charge_path, :class => 'navbar-link'  %></li>
+         <% end %>
+         <% if current_user.premium? %>
+           <li class="pull-right"><%= link_to "Downgrade account", new_charge_path, :class => 'navbar-link', data: {confirm: 'Are you sure you want to downgrade your account?'} %></li>
+         <% end %>
       <% else %>
          <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> </li>
          <li class="pull-right"><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %></li>

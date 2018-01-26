@@ -15,7 +15,7 @@ class WikisController < ApplicationController
      @wiki = Wiki.new
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
-     @wiki.private = false;
+     @wiki.private ||= false;
      @wiki.user = current_user;
 
      if @wiki.save
