@@ -32,6 +32,7 @@ class WikisController < ApplicationController
   end
 
   def update
+    authorize Wiki
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
