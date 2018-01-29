@@ -13,7 +13,7 @@ class ChargesController < ApplicationController
       charge = Stripe::Charge.create(
         customer: customer.id, # Note -- this is NOT the user_id in your app
         amount: 1500, #Amount.default,
-        description: "BigMoney Membership - #{current_user.email}",
+        description: "Premium Membership - #{current_user.email}",
         currency: 'usd'
       )
 
