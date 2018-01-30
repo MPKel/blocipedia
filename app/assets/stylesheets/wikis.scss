@@ -1,3 +1,13 @@
 // Place all the styles related to the Wikis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.border-index {
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-shadow: 4px 4px 2px lightblue;
+  background-color: rgb(230, 230, 230);
+}
+
+.border-index-body {
+  border: 1px solid lightblue;
+}

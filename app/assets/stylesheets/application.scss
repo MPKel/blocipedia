@@ -16,6 +16,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ .media-body h4 {
+   padding: 10px;
+ }
+
  .jumbotron h1 {
    color: white;
  }
@@ -24,3 +28,5 @@
    color: white;
    padding-left: 20px;
  }
+
+ 
