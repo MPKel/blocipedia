@@ -1,10 +1,11 @@
 class WikisController < ApplicationController
   def index
-    if current_user.admin? || current_user.premium?
-      @wikis = Wiki.all
-    else
-      @wikis = Wiki.where.not(private: true)
-    end
+    # if current_user.admin? || current_user.premium?
+    #   @wikis = Wiki.all
+    # else
+    #   @wikis = Wiki.where.not(private: true)
+    # end
+    @wikis = policy_scope(Wiki)
   end
 
   def show
@@ -20,7 +21,7 @@ class WikisController < ApplicationController
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
      @wiki.private = params[:wiki][:private] || false
-     @wiki.user = current_user;
+     @wiki.user_id = current_user.id;
 
      if @wiki.save
        flash[:notice] = "Wiki was saved."
@@ -41,7 +42,7 @@ class WikisController < ApplicationController
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
     @wiki.private = params[:wiki][:private] || false
-    @wiki.user = current_user;
+    #@wiki.user_id = current_user.id;
 
     if @wiki.save
       flash[:notice] = "Wiki was saved."

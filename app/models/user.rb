@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :wikis
+  has_many :collaborators
+  has_many :wikis, through: :collaborators
 
   #before_save { self.role ||= :standard }
   after_initialize :init
@@ -13,7 +14,7 @@ class User < ApplicationRecord
     self.role ||= :standard
   end
 
-  
+
 
   enum role: [:standard, :premium, :admin]
 
