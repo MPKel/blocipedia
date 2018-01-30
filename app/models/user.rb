@@ -13,6 +13,8 @@ class User < ApplicationRecord
     self.role ||= :standard
   end
 
+  
+
   enum role: [:standard, :premium, :admin]
 
   #validates :name, length: {minimum: 1, maximum: 100}, presence: true

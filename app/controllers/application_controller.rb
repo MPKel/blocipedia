@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def downgrade(id)
+    @wikis = Wiki.where(user_id: id)
+    @wikis.each do |wiki|
+      wiki.private = false
+      wiki.save
+    end
+  end
+
   private
 
   def user_not_authorized

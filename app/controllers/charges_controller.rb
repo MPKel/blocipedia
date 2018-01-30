@@ -39,6 +39,7 @@ class ChargesController < ApplicationController
     if current_user.premium?
         flash[:notice] = "The account: #{current_user.email} has been downgraded to a standard account. NO REFUNDS!"
         current_user.standard!
+        downgrade(current_user.id)
         redirect_to root_path
 
     else

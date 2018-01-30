@@ -25,7 +25,7 @@
            <li class="pull-right"><%= link_to "Upgrade account", new_charge_path, :class => 'navbar-link'  %></li>
          <% end %>
          <% if current_user.premium? %>
-           <li class="pull-right"><%= link_to "Downgrade account", new_charge_path, :class => 'navbar-link', data: {confirm: 'Are you sure you want to downgrade your account?'} %></li>
+           <li class="pull-right"><%= link_to "Downgrade account", new_charge_path, :class => 'navbar-link', data: {confirm: 'Are you sure you want to downgrade your account? Your PRIVATE Wikis will become PUBLIC'} %></li>
          <% end %>
       <% else %>
          <li class="pull-right"><%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> </li>

@@ -1,6 +1,10 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.all
+    if current_user.admin? || current_user.premium?
+      @wikis = Wiki.all
+    else
+      @wikis = Wiki.where.not(private: true)
+    end
   end
 
   def show
@@ -15,7 +19,7 @@ class WikisController < ApplicationController
      @wiki = Wiki.new
      @wiki.title = params[:wiki][:title]
      @wiki.body = params[:wiki][:body]
-     @wiki.private ||= false;
+     @wiki.private = params[:wiki][:private];
      @wiki.user = current_user;
 
      if @wiki.save
@@ -36,7 +40,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
-    @wiki.private = false;
+    @wiki.private = params[:wiki][:private];
     @wiki.user = current_user;
 
     if @wiki.save
@@ -59,5 +63,6 @@ class WikisController < ApplicationController
        render :show
     end
   end
+
 
 end
