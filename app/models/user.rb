@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :wikis
   has_many :collaborators
-  has_many :wikis, through: :collaborators
+  has_many :wikis_collab, through: :collaborators, source: :wiki
 
   #before_save { self.role ||= :standard }
   after_initialize :init

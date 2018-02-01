@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   #
   # get 'wikis/edit'
 
-  resources :wikis
+
+  resources :wikis do
+      resources :collaborators, only: [:create, :destroy, :index]
+  end
 
   devise_for :users
 
@@ -17,6 +20,8 @@ Rails.application.routes.draw do
   get 'welcome/about'
 
   root 'welcome#index'
+
+
 
   resources :charges, only: [:new, :create]
 

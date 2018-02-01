@@ -32,6 +32,11 @@ class ChargesController < ApplicationController
 
   end
 
+  def downgrade(id)
+    @wikis = Wiki.where(user_id: id)
+    @wikis.update_all(private: false)
+  end
+
 
 
   def new
