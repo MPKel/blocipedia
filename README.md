@@ -1,24 +1,13 @@
-# README
+# Blocipedia
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### A Wikipedia clone created with Ruby on Rails, implementing test driven design.
 
-Things you may want to cover:
+![User Sign In](/assets/images/userSignIn.png)
 
-* Ruby version
 
-* System dependencies
+![Landing Page](/assets/images/homePage.png)
 
-* Configuration
+![Wikis Directory](/assets/images/wikisList.png)
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Stripe integration](/assets/images/stripeIntegration.png)
